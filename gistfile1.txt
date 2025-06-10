@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ares Security Group Elite - Protección Integral en Ecuador</title>
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #c1121f;
+            --accent-color: #e94560;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.pngegg.com/en/png-zjqpf');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            text-transform: uppercase;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .service-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .service-content ul li:before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .about {
+            background-color: var(--primary-color);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.pngegg.com/en/png-zwjzf') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .mission, .vision {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .mission h3, .vision h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .equipment {
+            background-color: var(--light-color);
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .equipment-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .equipment-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .equipment-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .values {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .value-item:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+        
+        .value-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .value-item:hover i {
+            color: white;
+        }
+        
+        .clients {
+            background-color: white;
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .client-logos img {
+            height: 60px;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .client-logos img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            min-width: 25px;
+            text-align: center;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(193, 18, 31, 0.2);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo img {
+            height: 70px;
+        }
+        
+        .social-links {
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+        
+        @media (max-width: 992px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://www.pngegg.com/en/png-zjqpf" alt="Ares Security Logo">
+                <div>
+                    <h1>ARES SECURITY</h1>
+                    <span>GROUP ELITE</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#equipos">Equipos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h2>PROTECCIÓN INTEGRAL EN ECUADOR</h2>
+            <p>Somos especialistas en seguridad privada, enfocados en brindar protección integral con servicios y equipos especializados para salvaguardar vidas y prevenir actos delincuenciales.</p>
+            <a href="#contacto" class="btn">Solicitar Servicio</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Seguridad Física">
+                    <div class="service-content">
+                        <h3>Seguridad Física</h3>
+                        <ul>
+                            <li>Guardias de seguridad altamente capacitados</li>
+                            <li>Protección personal</li>
+                            <li>Recepcionista de seguridad</li>
+                            <li>Operaciones de consola</li>
+                            <li>Servicios con armas y sin armas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Servicio VIP">
+                    <div class="service-content">
+                        <h3>Servicio VIP</h3>
+                        <ul>
+                            <li>Custodia de seguridad privada VIP</li>
+                            <li>Operaciones supervisadas</li>
+                            <li>Control de puestos con tecnología</li>
+                            <li>Centro de comando y comunicación integral</li>
+                            <li>Respuesta inmediata y vigilancia táctica</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Consultoría">
+                    <div class="service-content">
+                        <h3>Consultoría en Seguridad</h3>
+                        <ul>
+                            <li>Planes estratégicos personalizados</li>
+                            <li>Análisis de riesgos</li>
+                            <li>Asesoramiento en protocolos de seguridad</li>
+                            <li>Soluciones innovadoras y efectivas</li>
+                            <li>Prevención de actos delincuenciales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipos" class="equipment">
+        <div class="container">
+            <h2 class="section-title">Equipos de Seguridad</h2>
+            <p style="text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Contamos con un catálogo completo de equipos y herramientas de seguridad, tanto al por mayor como al por menor, con productos de calidad y marcas de confianza.</p>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Armas" style="height: 80px; margin-bottom: 15px;">
+                    <h3>Armas</h3>
+                    <p>Equipamiento táctico profesional</p>
+                </div>
+                <div class="equipment-item">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Cascos Tácticos" style="height: 80px; margin-bottom: 15px;">
+                    <h3>Cascos Tácticos</h3>
+                    <p>Protección de alta resistencia</p>
+                </div>
+                <div class="equipment-item">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Cámaras de Seguridad" style="height: 80px; margin-bottom: 15px;">
+                    <h3>Cámaras de Seguridad</h3>
+                    <p>Sistemas de vigilancia avanzados</p>
+                </div>
+                <div class="equipment-item">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Chalecos Antibalas" style="height: 80px; margin-bottom: 15px;">
+                    <h3>Chalecos Antibalas</h3>
+                    <p>Protección balística certificada</p>
+                </div>
+                <div class="equipment-item">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Comunicaciones" style="height: 80px; margin-bottom: 15px;">
+                    <h3>Comunicaciones</h3>
+                    <p>Equipos de radio y sistemas integrados</p>
+                </div>
+                <div class="equipment-item">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Equipamiento Táctico" style="height: 80px; margin-bottom: 15px;">
+                    <h3>Equipamiento Táctico</h3>
+                    <p>Todo lo necesario para operaciones especiales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2 class="section-title">¿Quiénes Somos?</h2>
+                <p>Somos una Agencia Especialista en Seguridad Privada, constituida en Ecuador, enfocada en brindar protección integral con servicios y equipos especializados en seguridad y vigilancia.</p>
+                <p>Generamos confianza, lealtad y respeto a nuestro personal mediante la preparación especializada y el cumplimiento de sus derechos de ley, de manera oportuna y justa.</p>
+                
+                <div class="mission-vision">
+                    <div class="mission">
+                        <h3>Misión</h3>
+                        <p>Proteger la integridad y brindar seguridad a nuestros clientes, proporcionando soluciones confiables que ayuden a prevenir riesgos, con planes estratégicos para salvaguardar vidas.</p>
+                    </div>
+                    <div class="vision">
+                        <h3>Visión</h3>
+                        <p>Ser reconocidos como líderes en la industria de la seguridad, proporcionando soluciones innovadoras y efectivas que generen bienestar a nuestros clientes y comunidades.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-img">
+                <img src="https://www.pngegg.com/en/png-zwjzf" alt="Equipo Ares Security">
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title">Nuestras Ventajas</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Relación Calidad-Precio" style="height: 60px; margin-bottom: 15px;">
+                    <h3>Relación Calidad-Precio</h3>
+                    <p>Servicios competitivos con altos estándares de calidad</p>
+                </div>
+                <div class="value-item">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Opciones Variadas" style="height: 60px; margin-bottom: 15px;">
+                    <h3>Opciones Variadas</h3>
+                    <p>Soluciones adaptadas a cada necesidad</p>
+                </div>
+                <div class="value-item">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Guardias Capacitados" style="height: 60px; margin-bottom: 15px;">
+                    <h3>Guardias Capacitados</h3>
+                    <p>Personal con experiencia en seguridad ciudadana</p>
+                </div>
+                <div class="value-item">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Tecnología de Vanguardia" style="height: 60px; margin-bottom: 15px;">
+                    <h3>Tecnología de Vanguardia</h3>
+                    <p>Equipos y sistemas de última generación</p>
+                </div>
+                <div class="value-item">
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Ética Profesional" style="height: 60px; margin-bottom: 15px;">
+                    <h3>Ética Profesional</h3>
+                    <p>Compromiso, responsabilidad y respeto</p>
+                </div>
+                <div class="value-item">
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Enfoque al Cliente" style="height: 60px; margin-bottom: 15px;">
+                    <h3>Enfoque al Cliente</h3>
+                    <p>Satisfacción de necesidades con servicio superior</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients">
+        <div class="container">
+            <h2 class="section-title">Nuestros Clientes</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Servimos a diversos sectores con planes estratégicos tácticos personalizados:</p>
+            <div class="client-logos">
+                <div>
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Instituciones" style="height: 80px;">
+                    <p>Instituciones Públicas y Privadas</p>
+                </div>
+                <div>
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Autoridades" style="height: 80px;">
+                    <p>Autoridades</p>
+                </div>
+                <div>
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Celebridades" style="height: 80px;">
+                    <p>Personajes de Pantalla</p>
+                </div>
+                <div>
+                    <img src="https://www.pngegg.com/en/png-zwjzf" alt="Transporte" style="height: 80px;">
+                    <p>Empresas Transportistas</p>
+                </div>
+                <div>
+                    <img src="https://www.pngegg.com/en/png-zjqpf" alt="Residencial" style="height: 80px;">
+                    <p>Urbanizaciones y Conjuntos Residenciales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Comunícate con nosotros</h3>
+                    <p><i class="fas fa-phone-alt"></i> 0960662720 - 0980657767</p>
+                    <p><i class="fas fa-envelope"></i> areseguridad23@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ecuador</p>
+                    <p><i class="fas fa-clock"></i> Disponibles 24/7 - 365 días al año</p>
+                    
+                    <h3 style="margin-top: 30px;">Nuestra Proposición de Valor</h3>
+                    <p>Somos una empresa enfocada en satisfacer las necesidades de seguridad de nuestros clientes con responsabilidad, respeto y el mejor servicio.</p>
+                    <p>Garantizamos protección física permanente con ética profesional y enfoque en los resultados.</p>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formsubmit.co/areseguridad23@gmail.com" method="POST">
+                        <input type="text" name="name" placeholder="Nombre completo" required>
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
+                        <input type="tel" name="phone" placeholder="Teléfono">
+                        <select name="service" required>
+                            <option value="">Seleccione un servicio</option>
+                            <option value="seguridad_fisica">Seguridad Física</option>
+                            <option value="servicio_vip">Servicio VIP</option>
+                            <option value="consultoria">Consultoría en Seguridad</option>
+                            <option value="equipos">Compra de Equipos</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <textarea name="message" placeholder="Mensaje" required></textarea>
+                        <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="https://www.pngegg.com/en/png-zjqpf" alt="Ares Security Logo" style="height: 80px;">
+                <h3>ARES SECURITY GROUP ELITE</h3>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Ares Security Group Elite - Todos los derechos reservados</p>
+                <p>Especialistas en Seguridad Privada - Ecuador</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
